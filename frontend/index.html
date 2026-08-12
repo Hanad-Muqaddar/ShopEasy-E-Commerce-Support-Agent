@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ShopEasy — Help Center</title>
+<style>
+  :root { --brand:#5b3fd6; --brand-dark:#3f2aa8; --ink:#1b1f2b; --muted:#7a8194; --bg:#f4f5fa; --line:#e7e9f2; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); }
+
+  header { background:#fff; border-bottom:1px solid var(--line); padding: 14px 28px; display:flex; align-items:center; justify-content:space-between; }
+  header .logo { font-weight: 800; font-size: 20px; color: var(--brand); }
+  header .links a { color: var(--muted); text-decoration:none; margin-left: 20px; font-size: 14px; }
+  header a.pitch { color: var(--brand); font-weight:600; }
+
+  .wrap { max-width: 1000px; margin: 26px auto; padding: 0 18px; display:grid; grid-template-columns: 260px 1fr; gap: 20px; }
+
+  /* Sidebar */
+  .side { background:#fff; border:1px solid var(--line); border-radius: 14px; padding: 18px; height: fit-content; }
+  .side h4 { font-size: 12px; text-transform: uppercase; letter-spacing:.6px; color: var(--muted); margin-bottom: 12px; }
+  .side .chip { display:block; width:100%; text-align:left; border:1px solid var(--line); background:#fbfbfe; border-radius:10px; padding:11px 12px; margin-bottom:9px; font-size:13.5px; cursor:pointer; color:var(--ink); transition:.15s; }
+  .side .chip:hover { border-color: var(--brand); color: var(--brand); }
+  .side .note { margin-top:14px; font-size:12px; color:var(--muted); line-height:1.5; }
+
+  /* Chat console */
+  .console { background:#fff; border:1px solid var(--line); border-radius: 14px; display:flex; flex-direction:column; height: 600px; overflow:hidden; }
+  .console-head { padding: 15px 18px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:11px; }
+  .console-head .avatar { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-dark)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
+  .console-head .who strong { font-size:15px; }
+  .console-head .who small { display:block; color:#22b07d; font-size:12px; }
+  .console-head .who small::before { content:"●"; margin-right:5px; }
+
+  .stream { flex:1; padding: 20px; overflow-y:auto; background: var(--bg); display:flex; flex-direction:column; gap:12px; }
+  .msg { max-width: 76%; padding: 11px 15px; border-radius: 16px; font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
+  .msg.bot { background:#fff; align-self:flex-start; border-bottom-left-radius:5px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  .msg.user { background: var(--brand); color:#fff; align-self:flex-end; border-bottom-right-radius:5px; }
+  .msg.typing { color: var(--muted); font-style: italic; background:#fff; }
+
+  .composer { display:flex; gap:10px; padding: 14px; border-top:1px solid var(--line); background:#fff; }
+  .composer input { flex:1; border:1px solid var(--line); border-radius: 10px; padding: 13px 14px; font-size: 14px; outline:none; }
+  .composer input:focus { border-color: var(--brand); }
+  .composer button { border:none; background: var(--brand); color:#fff; padding: 0 22px; border-radius:10px; cursor:pointer; font-size:14px; font-weight:600; }
+
+  @media (max-width: 760px){ .wrap{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🛍️ ShopEasy</div>
+  <div class="links">
+    <a href="#">Orders</a>
+    <a href="#">Shipping</a>
+    <a href="#">Returns</a>
+    <a class="pitch" href="/">▶ View Pitch</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="side">
+    <h4>Quick help</h4>
+    <button class="chip" data-q="Where is my order ORD-1002?">📦 Where is my order?</button>
+    <button class="chip" data-q="I want to return order ORD-1004, it doesn't fit.">↩️ Start a return</button>
+    <button class="chip" data-q="What is your return policy?">📄 Return policy</button>
+    <button class="chip" data-q="How long does shipping take?">🚚 Shipping times</button>
+    <button class="chip" data-q="I'm really frustrated, my order is late and no one is helping.">🙋 Talk to a human</button>
+    <div class="note">Demo tip: use order IDs <b>ORD-1001</b> to <b>ORD-1004</b>, or email <b>sara@example.com</b>.</div>
+  </aside>
+
+  <main class="console">
+    <div class="console-head">
+      <div class="avatar">M</div>
+      <div class="who"><strong>Max — ShopEasy Support</strong><small>Online now</small></div>
+    </div>
+    <div class="stream" id="stream"></div>
+    <div class="composer">
+      <input id="text" placeholder="Type your message…" autocomplete="off" />
+      <button id="send">Send</button>
+    </div>
+  </main>
+</div>
+
+<script>
+  const SESSION_ID = "sess-" + Math.random().toString(36).slice(2);
+  const API = window.location.origin + "/chat";
+  const stream = document.getElementById("stream");
+  const input = document.getElementById("text");
+
+  function addMsg(who, text) {
+    const el = document.createElement("div");
+    el.className = "msg " + who;
+    el.textContent = text;
+    stream.appendChild(el);
+    stream.scrollTop = stream.scrollHeight;
+    return el;
+  }
+
+  async function send(preset) {
+    const text = (preset || input.value).trim();
+    if (!text) return;
+    addMsg("user", text);
+    input.value = "";
+    const typing = addMsg("bot typing", "Max is typing…");
+    try {
+      const res = await fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session_id: SESSION_ID, message: text })
+      });
+      const data = await res.json();
+      typing.remove();
+      addMsg("bot", data.reply || "Sorry, something went wrong.");
+    } catch (e) {
+      typing.remove();
+      addMsg("bot", "Connection error — is the server running?");
+    }
+  }
+
+  document.getElementById("send").onclick = () => send();
+  input.addEventListener("keydown", e => { if (e.key === "Enter") send(); });
+  document.querySelectorAll(".chip").forEach(c => c.onclick = () => send(c.dataset.q));
+
+  // Greeting
+  addMsg("bot", "Hi, I'm Max from ShopEasy support 👋 How can I help today? You can ask about an order, start a return, or check our policies.");
+</script>
+</body>
+</html>

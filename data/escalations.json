@@ -1,0 +1,14 @@
+[
+  {
+    "created_at": "2026-07-13T01:35:08",
+    "summary": "late order, upset",
+    "contact": "sara@example.com",
+    "status": "Open"
+  },
+  {
+    "created_at": "2026-07-13T02:17:41",
+    "summary": "Customer wants to know the total cost of order ORD-1002 (John Carter). Order status/items available but cost/billing info not accessible via available tools.",
+    "contact": "",
+    "status": "Open"
+  }
+]

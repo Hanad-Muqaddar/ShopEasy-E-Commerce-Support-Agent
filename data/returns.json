@@ -1,0 +1,18 @@
+[
+  {
+    "created_at": "2026-07-13T01:35:08",
+    "rma": "RMA-1004",
+    "order_id": "ORD-1004",
+    "customer": "Sara Ahmed",
+    "reason": "doesn't fit",
+    "status": "Return started"
+  },
+  {
+    "created_at": "2026-07-13T02:28:55",
+    "rma": "RMA-1003",
+    "order_id": "ORD-1003",
+    "customer": "Mia Lopez",
+    "reason": "Shirt runs small, doesn't fit customer",
+    "status": "Return started"
+  }
+]

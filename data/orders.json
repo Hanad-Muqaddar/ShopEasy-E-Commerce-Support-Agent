@@ -1,0 +1,50 @@
+[
+  {
+    "order_id": "ORD-1001",
+    "email": "sara@example.com",
+    "customer": "Sara Ahmed",
+    "items": ["Wireless Headphones (Black)"],
+    "total": 79.99,
+    "status": "Shipped",
+    "tracking": "TRK889912",
+    "carrier": "FedEx",
+    "ordered_on": "2026-07-02",
+    "estimated_delivery": "2026-07-15"
+  },
+  {
+    "order_id": "ORD-1002",
+    "email": "john@example.com",
+    "customer": "John Carter",
+    "items": ["Running Shoes (Size 10)", "Sports Socks (3-pack)"],
+    "total": 124.50,
+    "status": "Processing",
+    "tracking": null,
+    "carrier": "UPS",
+    "ordered_on": "2026-07-11",
+    "estimated_delivery": "2026-07-19"
+  },
+  {
+    "order_id": "ORD-1003",
+    "email": "mia@example.com",
+    "customer": "Mia Lopez",
+    "items": ["Cotton T-Shirt (Blue, M)"],
+    "total": 22.00,
+    "status": "Delivered",
+    "tracking": "TRK554120",
+    "carrier": "UPS",
+    "ordered_on": "2026-06-28",
+    "estimated_delivery": "2026-07-03"
+  },
+  {
+    "order_id": "ORD-1004",
+    "email": "sara@example.com",
+    "customer": "Sara Ahmed",
+    "items": ["Smart Watch (Silver)"],
+    "total": 199.00,
+    "status": "Delivered",
+    "tracking": "TRK773401",
+    "carrier": "FedEx",
+    "ordered_on": "2026-06-20",
+    "estimated_delivery": "2026-06-26"
+  }
+]

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ShopEasy AI Support — The Pitch</title>
+<style>
+  :root { --brand:#5b3fd6; --brand-dark:#3f2aa8; --ink:#1b1f2b; --muted:#66708a; --bg:#f4f5fa; --line:#e7e9f2; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; }
+  .section { max-width: 1050px; margin: 0 auto; padding: 60px 24px; }
+  h2 { font-size: 30px; text-align:center; margin-bottom: 10px; }
+  .sub { text-align:center; color: var(--muted); font-size: 16px; margin-bottom: 40px; }
+
+  /* Hero */
+  .hero { background: linear-gradient(125deg, var(--brand), var(--brand-dark)); color:#fff; text-align:center; padding: 90px 24px 80px; }
+  .hero h1 { font-size: 46px; line-height:1.15; margin-bottom: 16px; }
+  .hero p { font-size: 20px; color:#e4defb; max-width: 680px; margin: 0 auto 30px; }
+  .btn { display:inline-block; background:#fff; color: var(--brand); text-decoration:none; font-weight:700; padding: 14px 30px; border-radius: 12px; font-size: 16px; }
+  .btn.alt { background: rgba(255,255,255,.15); color:#fff; border:1px solid rgba(255,255,255,.5); margin-left:10px; }
+
+  /* Cards */
+  .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 20px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius: 16px; padding: 26px 22px; }
+  .card .ico { font-size: 30px; margin-bottom: 12px; }
+  .card h3 { font-size: 17px; margin-bottom: 8px; }
+  .card p { font-size: 14.5px; color: var(--muted); }
+
+  .stat { background: var(--brand); color:#fff; border-radius: 16px; padding: 30px; text-align:center; margin-top: 30px; }
+  .stat b { font-size: 34px; display:block; }
+
+  /* Steps */
+  .steps { display:grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+  .step { background:#fff; border:1px solid var(--line); border-radius: 14px; padding: 22px 16px; text-align:center; position:relative; }
+  .step .n { width:32px; height:32px; border-radius:50%; background:var(--brand); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; margin:0 auto 12px; }
+  .step h4 { font-size:15px; margin-bottom:6px; }
+  .step p { font-size:13px; color:var(--muted); }
+
+  /* Before/after */
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap: 20px; }
+  .col { border-radius: 16px; padding: 26px; }
+  .col.before { background:#fff; border:1px solid var(--line); }
+  .col.after { background: #efeaff; border:1px solid #d6ccff; }
+  .col h3 { margin-bottom: 14px; font-size: 18px; }
+  .col ul { list-style:none; }
+  .col li { padding: 8px 0; font-size: 14.5px; display:flex; gap:10px; }
+  .before li::before { content:"✕"; color:#d24b4b; font-weight:700; }
+  .after li::before { content:"✓"; color:#5b3fd6; font-weight:700; }
+
+  .tech { background:#fff; border:1px solid var(--line); border-radius:16px; padding: 26px; text-align:center; }
+  .tech span { display:inline-block; background:#f0eefc; color:var(--brand); border-radius:20px; padding:7px 16px; margin:5px; font-size:13.5px; font-weight:600; }
+
+  .cta { background: linear-gradient(125deg, var(--brand), var(--brand-dark)); color:#fff; text-align:center; border-radius: 20px; padding: 50px 24px; }
+  .cta h2 { color:#fff; }
+  .cta p { color:#e4defb; margin-bottom: 26px; }
+  footer { text-align:center; color:var(--muted); font-size:13px; padding: 30px; }
+  @media (max-width:760px){ .steps{grid-template-columns:1fr 1fr;} .compare{grid-template-columns:1fr;} .hero h1{font-size:34px;} }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Answer every customer in seconds —<br>day or night.</h1>
+  <p>An AI support agent that resolves order questions, returns, and FAQs instantly, so your team stops drowning in repetitive tickets.</p>
+  <a class="btn" href="/demo">▶ See the Live Demo</a>
+  <a class="btn alt" href="#problem">See how it works</a>
+</div>
+
+<!-- PROBLEM -->
+<div class="section" id="problem">
+  <h2>The Problem</h2>
+  <p class="sub">Support is where online stores quietly lose customers.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">📨</div><h3>Same questions, all day</h3><p>"Where's my order?", "How do I return this?", "What's your policy?" — the same handful of questions flood your inbox.</p></div>
+    <div class="card"><div class="ico">🐢</div><h3>Slow replies</h3><p>Customers wait hours for an answer a computer could give in seconds. Slow support means bad reviews and lost repeat sales.</p></div>
+    <div class="card"><div class="ico">💸</div><h3>Expensive & 24/7</h3><p>Staffing support round the clock is costly. Nights, weekends, and holidays go unanswered — exactly when people shop online.</p></div>
+    <div class="card"><div class="ico">😤</div><h3>Team burnout</h3><p>Your best people spend their day copy-pasting tracking numbers instead of solving the problems that actually need a human.</p></div>
+  </div>
+  <div class="stat"><b>60–70%</b>of e-commerce support tickets are the same repetitive questions an AI agent can resolve on its own.</div>
+</div>
+
+<!-- SOLUTION -->
+<div class="section">
+  <h2>The Solution: Meet "Max"</h2>
+  <p class="sub">An AI support agent that actually takes action — not just canned replies.</p>
+  <div class="grid">
+    <div class="card"><div class="ico">⚡</div><h3>Instant, 24/7</h3><p>Replies in seconds, any hour, every day. No queue, no hold music.</p></div>
+    <div class="card"><div class="ico">📦</div><h3>Looks up real orders</h3><p>Pulls live order status and tracking by order ID or email — no human needed.</p></div>
+    <div class="card"><div class="ico">↩️</div><h3>Handles returns</h3><p>Starts returns, issues return numbers, and explains refund timelines automatically.</p></div>
+    <div class="card"><div class="ico">🙋</div><h3>Knows when to escalate</h3><p>If a customer is upset or the issue is complex, it hands off to a human with full context.</p></div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <h2>How It Works</h2>
+  <p class="sub">A customer message flows through the agent in four steps.</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h4>Customer asks</h4><p>"Where's my order?" in the live chat.</p></div>
+    <div class="step"><div class="n">2</div><h4>Agent understands</h4><p>It reads the request and decides which action to take.</p></div>
+    <div class="step"><div class="n">3</div><h4>Takes action</h4><p>Looks up the order, starts a return, or answers the policy.</p></div>
+    <div class="step"><div class="n">4</div><h4>Resolves or escalates</h4><p>Solves it instantly, or routes to a human if needed.</p></div>
+  </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<div class="section">
+  <h2>Before vs After</h2>
+  <p class="sub">The same store, with and without the agent.</p>
+  <div class="compare">
+    <div class="col before">
+      <h3>Without an AI agent</h3>
+      <ul>
+        <li>Customers wait hours (or overnight) for a reply</li>
+        <li>Staff repeat the same answers all day</li>
+        <li>No support outside business hours</li>
+        <li>Support costs scale with every new customer</li>
+      </ul>
+    </div>
+    <div class="col after">
+      <h3>With Max</h3>
+      <ul>
+        <li>Instant answers, 24/7, in every timezone</li>
+        <li>Repetitive tickets handled automatically</li>
+        <li>Team focuses only on issues that need a human</li>
+        <li>Support scales without extra headcount</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- TECH -->
+<div class="section">
+  <h2>How It's Built</h2>
+  <p class="sub">Reliable, integration-ready, and easy to connect to your existing stack.</p>
+  <div class="tech">
+    <p style="color:var(--muted); margin-bottom:14px;">The agent connects to your store and tools through an automation layer, so it can take real actions safely:</p>
+    <span>AI Agent Core</span>
+    <span>n8n — tool &amp; workflow orchestration</span>
+    <span>Order &amp; tracking lookup</span>
+    <span>Returns &amp; refunds</span>
+    <span>Live chat widget</span>
+    <span>Human escalation</span>
+    <p style="color:var(--muted); margin-top:16px; font-size:13.5px;">Connects to Shopify / WooCommerce, your help desk, and payment provider.</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="section">
+  <div class="cta">
+    <h2>Ready to see it live?</h2>
+    <p>Try the working agent — ask about an order, start a return, or push it to escalate.</p>
+    <a class="btn" href="/demo">▶ Open the Live Demo</a>
+  </div>
+</div>
+
+<footer>Max is an AI assistant. Complex, sensitive, or high-value cases are always routed to a human agent.</footer>
+</body>
+</html>
